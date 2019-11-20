@@ -1,4 +1,4 @@
-﻿using DemoLibrary;
+﻿using Autofac;
 using System;
 
 namespace ConsoleUI
@@ -7,9 +7,13 @@ namespace ConsoleUI
   {
     static void Main(string[] args)
     {
-      BusinessLogic businessLogic = new BusinessLogic();
+      var container = ContainerConfig.Configure();
 
-      businessLogic.ProcessData();
+      using (var scope = container.BeginLifetimeScope())
+      {
+        var app = scope.Resolve<IApplication>();
+        app.Run();
+      }
 
       Console.ReadLine();
     }
