@@ -6,7 +6,7 @@ namespace DemoLibrary.Utilities
   {
     public void Log(string message)
     {
-      Console.WriteLine($"Logging { message }");
+      Console.WriteLine($"Logging:: { message }", Console.ForegroundColor = ConsoleColor.Cyan);
     }
 
   }
