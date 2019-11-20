@@ -14,7 +14,8 @@ namespace ConsoleUI
 
       #region Manual Builders
       // menual setup
-      builder.RegisterType<BusinessLogic>().As<IBusinessLogic>();
+      //builder.RegisterType<BusinessLogic>().As<IBusinessLogic>();
+      builder.RegisterType<BetterBusinessLogic>().As<IBusinessLogic>();
       builder.RegisterType<Application>().As<IApplication>();
       #endregion
 
