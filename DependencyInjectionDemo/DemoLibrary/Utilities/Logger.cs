@@ -1,13 +1,15 @@
-﻿using System;
+﻿using log4net;
+using System;
 
 namespace DemoLibrary.Utilities
 {
-  public class Logger : ILogger
-  {
-    public void Log(string message)
+    public class Logger : ILogger
     {
-      Console.WriteLine($"Logging:: { message }", Console.ForegroundColor = ConsoleColor.Cyan);
-    }
+        
+        public void Log(string message)
+        {
+            Console.WriteLine($"Logging:: { message }", Console.ForegroundColor = ConsoleColor.Cyan);
+        }
 
-  }
+    }
 }

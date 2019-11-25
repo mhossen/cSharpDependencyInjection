@@ -1,21 +1,25 @@
 ﻿using Autofac;
+using log4net;
 using System;
 
 namespace ConsoleUI
 {
-  class Program
-  {
-    static void Main(string[] args)
+    class Program
     {
-      var container = ContainerConfig.Configure();
+        private static readonly ILog log = LogManager.GetLogger(nameof(Program));
 
-      using (var scope = container.BeginLifetimeScope())
-      {
-        var app = scope.Resolve<IApplication>();
-        app.Run();
-      }
+        static void Main(string[] args)
+        {
+            log.Info("Blah");
+            var container = ContainerConfig.Configure();
 
-      Console.ReadLine();
+            using (var scope = container.BeginLifetimeScope())
+            {
+                var app = scope.Resolve<IApplication>();
+                app.Run();
+            }
+
+            Console.ReadLine();
+        }
     }
-  }
 }
